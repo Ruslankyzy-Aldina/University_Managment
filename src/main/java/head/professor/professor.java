@@ -8,7 +8,7 @@ public class professor {
     public int experience;
 
     public String teacher(){
-        return this.fullname + this.experience + " years";
+        return this.fullname + " "+ this.experience + " years";
     }
 
 }

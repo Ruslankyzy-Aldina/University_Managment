@@ -7,10 +7,10 @@ public class courses {
     //parameters
     public String subject;
     public int credits;
-    public String time;
+    public int time;
     //methods
     public String program(){
-        return this.subject + " "+ this.credits+ " credits " + this.time;
+        return this.subject + " "+ this.credits+ " credits " + this.time +" hours";
     }
 
 }

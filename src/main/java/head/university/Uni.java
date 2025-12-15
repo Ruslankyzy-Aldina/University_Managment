@@ -4,12 +4,12 @@ public class Uni {
     public Uni(){
 
     }
-    public String title;
+    public String name;
     public int years;
     public String city;
 
     public String print(){
-        return this.title + this.years +" years " + this.city ;
+        return this.name + " "+ this.years + " years " + this.city ;
     }
 
 }
