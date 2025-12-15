@@ -25,9 +25,10 @@ public class Main {
             System.out.println(course1.subject +" > "+ course2.subject);
         }
 
-        professor professor1 = new professor();
-        professor1.fullname = "Ayim Nurbolkyzy";
-        professor1.experience = 5;
+        professor professor1 = new professor("Ayim Nurbolkyzy", 5);
+        String professor1Fullname = professor1.getfullname();
+        int professor1Experience = professor1.getExperience();
+
         professor professor2 = new professor();
         professor2.fullname = "Kiril Trimakov";
         professor2.experience = 2;
