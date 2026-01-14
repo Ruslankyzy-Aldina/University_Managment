@@ -52,9 +52,43 @@ public class Main {
         System.out.println(Uni1Info);
         System.out.println(Uni2Info);
 
-        if(Uniname1.getCity() == "Astana"){
-            System.out.println("It is good university: "+ Uniname1.getName());
+        if(Uniname1.getCity().equals("Astana")){
+            System.out.println("It is good university: "+ Uniname1.getName()+"\n");
         }
+        professor p = new professor();
+        p.addProfessor(new professor("Ali Bekov", 5));
+        p.addProfessor(new professor("Dana Kenzhe", 12));
+        p.addProfessor(new professor("Arman Suleimenov", 8));
+        p.addProfessor(new professor("Aigerim Ruslanova", 4));
+
+        Uni u = new Uni();
+        u.addUniversity(new Uni("ENU", "Astana", 27));
+        u.addUniversity(new Uni("KazNU", "Almaty", 90));
+        u.addUniversity(new Uni("Nazarbayev University", "Astana", 15));
+
+        courses c = new courses();
+        c.addCourse(new courses("Calculus 1", 5, 60));
+        c.addCourse(new courses("Data structure and Algorithms", 6, 65));
+        c.addCourse(new courses("History of Kazakhstan", 2, 30));
+
+        p.filterByExperience(0);
+        u.filterByCity("Astana");
+        c.filterByCredits(0);
+
+        p.searchByFullname("an");
+        u.searchByName("NU");
+        c.searchBySubject("st");
+
+        p.sortByExperience();
+        u.sortByYears();
+        c.sortByTime();
+
+        p.showAll();
+        u.showAll();
+        c.showAll();
+
+
+
     }
 
 
