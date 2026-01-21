@@ -1,5 +1,6 @@
 package head.professor;
 
+import java.util.Objects;
 public class professor {
     private String fullname;
     private int experience;
@@ -13,47 +14,54 @@ public class professor {
         this.experience = experience;
     }
 
-    public professor() {}
+    public professor() {
+    }
+
     //adding info into array
-    public void addProfessor(professor p){
-        if(count< professors.length ){
-            professors[count] =p;
+    public void addProfessor(professor p) {
+        if (count < professors.length) {
+            professors[count] = p;
             count++;
         }
     }
+
     //filtering
-    public void filterByExperience(int minYears){
-        for(int i =0; i<count; i++){
-            if(professors[i].getExperience()>= minYears ){
+    public void filterByExperience(int minYears) {
+        for (int i = 0; i < count; i++) {
+            if (professors[i].getExperience() >= minYears) {
                 System.out.println(professors[i].teacher());
             }
         }
     }
+
     //searching
-    public void searchByFullname(String keyword){
-        for(int i=0; i<count; i++){
-            if(professors[i].getFullname().toLowerCase().contains(keyword.toLowerCase())){
+    public void searchByFullname(String keyword) {
+        for (int i = 0; i < count; i++) {
+            if (professors[i].getFullname().toLowerCase().contains(keyword.toLowerCase())) {
                 System.out.println(professors[i].fullname);
             }
         }
     }
+
     //bubble sort
-    public void sortByExperience(){
-        for(int i =0; i<count -1; i++){
-            for(int j=0; j<count -1; j++){
-                if(professors[i].experience> professors[j+1].experience){
+    public void sortByExperience() {
+        for (int i = 0; i < count - 1; i++) {
+            for (int j = 0; j < count - 1; j++) {
+                if (professors[i].experience > professors[j + 1].experience) {
                     professor temp = professors[j];
-                    professors[j] = professors[j+1];
-                    professors[j+1] = temp;
+                    professors[j] = professors[j + 1];
+                    professors[j + 1] = temp;
                 }
             }
         }
     }
+
     public void showAll() {
         for (int i = 0; i < count; i++) {
             System.out.println(professors[i]);
         }
     }
+
     public String getFullname() {
         return fullname;
     }
@@ -73,4 +81,21 @@ public class professor {
     public String teacher() {
         return this.fullname + " " + this.experience + " years";
     }
+    @Override
+    public String toString() {
+        return fullname + " " + experience + " years";
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof professor)) return false;
+        professor p = (professor) o;
+        return experience == p.experience && Objects.equals(fullname, p.fullname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullname, experience);
+    }
 }
+

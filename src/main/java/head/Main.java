@@ -1,15 +1,17 @@
 package head;
 
 import head.course.courses;
+import head.course.electiveCourses;
+import head.course.mandatoryCourses;
 import head.university.Uni;
 import head.professor.professor;
 public class Main {
     public static void main(String[] args){
-        courses course1=new courses();
+        courses course1=new mandatoryCourses();
         course1.setSubject("Introduction to Programming");
         course1.setCredits(5);
         course1.setTime(2);
-        courses course2 = new courses();
+        courses course2 = new electiveCourses();
         course2.setSubject("Object-oriented programming");
         course2.setCredits(5);
         course2.setTime(5);
@@ -66,10 +68,10 @@ public class Main {
         u.addUniversity(new Uni("KazNU", "Almaty", 90));
         u.addUniversity(new Uni("Nazarbayev University", "Astana", 15));
 
-        courses c = new courses();
-        c.addCourse(new courses("Calculus 1", 5, 60));
-        c.addCourse(new courses("Data structure and Algorithms", 6, 65));
-        c.addCourse(new courses("History of Kazakhstan", 2, 30));
+        courses c = new mandatoryCourses();
+        c.addCourse(new mandatoryCourses("Calculus 1", 5, 60));
+        c.addCourse(new electiveCourses("Data structure and Algorithms", 6, 65));
+        c.addCourse(new mandatoryCourses("History of Kazakhstan", 2, 30));
 
         p.filterByExperience(0);
         u.filterByCity("Astana");

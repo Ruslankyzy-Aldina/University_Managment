@@ -1,4 +1,6 @@
 package head.university;
+import java.util.Objects;
+
 
 public class Uni {
     private String name;
@@ -81,9 +83,21 @@ public class Uni {
     public void setCity(String City){
         this.city = City;
     }
-
     public String print(){
         return this.name + " "+ this.years + " years " + this.city ;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Uni)) return false;
+        Uni uni = (Uni) o;
+        return years == uni.years &&
+                Objects.equals(name, uni.name) &&
+                Objects.equals(city, uni.city);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, city, years);
+    }
 }

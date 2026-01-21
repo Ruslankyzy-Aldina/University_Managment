@@ -1,6 +1,6 @@
 package head.course;
-
-public class courses {
+import java.util.Objects;
+public abstract class courses {
     private String subject;
     private int credits;
     private int time;
@@ -82,6 +82,22 @@ public class courses {
     //methods
     public String program(){
         return this.subject + " "+ this.credits+ " credits " + this.time +" hours";
+    }
+
+    public abstract String getCourseType();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof courses)) return false;
+        courses c = (courses) o;
+        return credits == c.credits &&
+                time == c.time &&
+                Objects.equals(subject, c.subject);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subject, credits, time);
     }
 
 }
